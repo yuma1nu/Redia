@@ -1,0 +1,37 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-electron/
+out/
+release/
+coverage/
+.vite/
+*.tsbuildinfo
+*.tgz
+
+# Local data and secrets
+.env
+.env.*
+!.env.example
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite3-journal
+local-data/
+test-artifacts/
+backups/
+
+# Local editor and operating system state
+.DS_Store
+Thumbs.db
+.vs/
+__pycache__/
+*.pyc

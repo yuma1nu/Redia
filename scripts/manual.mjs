@@ -1,0 +1,10 @@
+import { mkdir, mkdtemp } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { launch } from './launch.mjs';
+await mkdir('test-artifacts', { recursive: true });
+const root = await mkdtemp(resolve('test-artifacts/manual-'));
+const child = launch(['--smoke-test', '--phase1-test'], { EW_TEST_DATA_DIR: root, EW_SCENARIO: 'manual', EW_DEV_URL: '' });
+console.log(`Manual test profile: ${root}`);
+console.log('Ctrl+Shift+F9 toggles a simulated DB write failure in this test build only. Close the window to finish.');
+child.on('error', error => { console.error(error); process.exitCode = 1; });
+child.on('exit', code => { process.exitCode = code ?? 1; });

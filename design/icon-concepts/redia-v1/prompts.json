@@ -1,0 +1,27 @@
+{
+  "tool": "Built-in image_gen",
+  "status": "Concept proposals; app name and app configuration unchanged",
+  "concepts": [
+    {
+      "label": "A：端正なR",
+      "file": "A-geometric-r.png",
+      "prompt": "Use case: logo-brand. Create ONE original Windows application icon concept for 'Redia', a calm personal research-and-development workspace for notes, references, ideas and planning. Minimal premium productivity software aesthetic, distinctive at small taskbar sizes, precise flat vector-like geometry, broad shapes, balanced negative space. A single rounded-square tile fills about 86% of a square canvas, centered straight-on. Transparent outside the tile. No written wordmark, captions, mockup scene, tiny details, atom or gear or lightbulb symbols, gradients, shadows, texture, bevels, 3D, or watermark. Design a beautifully proportioned bespoke capital R in warm white on a muted medium-blue tile (approximately #3479B9). Strong vertical stem, rounded rectangular upper bowl with one generous counter, confident diagonal leg. The diagonal leg has a subtle intentional gap from the bowl, giving a clean modular engineered character while the R remains instantly readable. Restrained, architectural, quietly confident."
+    },
+    {
+      "label": "B：ページから生まれるR",
+      "file": "B-page-r.png",
+      "prompt": "Use case: logo-brand. Create ONE original Windows application icon concept for 'Redia', a calm personal research-and-development workspace for notes, references, ideas and planning. Minimal premium productivity software aesthetic, distinctive at small taskbar sizes, precise flat vector-like geometry, broad shapes, balanced negative space. A single rounded-square tile fills about 86% of a square canvas, centered straight-on. Transparent outside the tile. No written wordmark, captions, mockup scene, tiny details, atom or gear or lightbulb symbols, gradients, shadows, texture, bevels, 3D, or watermark. On a warm off-white tile, create a bold blue capital R subtly integrated with a single document silhouette: the upper bowl is a rounded page shape with one folded corner cut in negative space, and its lower diagonal stroke completes the R. It must read first as a simple elegant R, then as a research notebook page. One unified flat mark in muted medium blue approximately #3479B9, no page lines, no extra symbols. Large clear counter and generous margins."
+    },
+    {
+      "label": "C：つながるR",
+      "file": "C-ribbon-r.png",
+      "prompt": "Use case: logo-brand. Create ONE original Windows application icon concept for 'Redia', a calm personal research-and-development workspace for notes, references, ideas and planning. Minimal premium productivity software aesthetic, distinctive at small taskbar sizes, precise flat vector-like geometry, broad shapes, balanced negative space. A single rounded-square tile fills about 86% of a square canvas, centered straight-on. Transparent outside the tile. No written wordmark, captions, mockup scene, tiny details, atom or gear or lightbulb symbols, gradients, shadows, texture, bevels, 3D, or watermark. On a deep charcoal tile approximately #24282E, create an original capital R made from two interlocking broad ribbon shapes: a warm-white upright and rounded upper loop, with one blue diagonal leg approximately #3479B9. A simple single overlap/cut connects them, suggesting ideas and evidence coming together. Flat geometric construction, softly rounded corners, large unmistakable R silhouette. No elaborate knots or multiple loops. Quiet, modern, friendly but professional."
+    }
+  ],
+  "cleanupPromptForAandB": "Use case: precise-object-edit. This is a Redia application icon proposal. Preserve the exact central R symbol design, letter geometry, colors, rounded-square tile proportions and centered composition. Clean the image for a professional concept preview: remove ALL stray flecks and speckles outside the tile, all blotchy dark artifacts inside the tile, and all texture or gradients. Use solid uniform flat colors for the tile and symbol. Place the tile on a perfectly clean opaque white square canvas, so no transparency artifacts remain. Crisp smooth edges, no shadows, no extra text or objects. Change only surface cleanliness and the outside backdrop; preserve the identity of this icon.",
+  "backgrounds": {
+    "A": "opaque white outside tile",
+    "B": "opaque white outside tile",
+    "C": "transparent outside tile"
+  }
+}

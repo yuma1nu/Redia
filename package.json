@@ -1,0 +1,86 @@
+{
+  "name": "redia",
+  "productName": "Redia",
+  "version": "0.1.4",
+  "private": true,
+  "description": "個人用のローカル Redia",
+  "author": "Redia",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node scripts/launch.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.ts",
+    "test:phase1": "pnpm build && node scripts/build-test.mjs && node scripts/phase1.mjs",
+    "test:phase2": "pnpm build && node scripts/build-test.mjs && node scripts/phase2.mjs",
+    "test:phase3": "pnpm build && node scripts/build-test.mjs && node scripts/phase3.mjs",
+    "test:manual": "pnpm build && node scripts/build-test.mjs && node scripts/manual.mjs",
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:smoke:dev": "node scripts/smoke.mjs --dev",
+    "test:smoke:packaged": "node scripts/smoke.mjs --packaged",
+    "package:dir": "pnpm build && electron-builder --dir --win --x64",
+    "dist:win": "pnpm build && electron-builder --win nsis --x64",
+    "test:phase4": "pnpm build && node scripts/build-test.mjs && node scripts/phase4.mjs",
+    "test:phase5": "pnpm build && node scripts/build-test.mjs && node scripts/phase5.mjs",
+    "test:clipboard": "pnpm build && node scripts/build-test.mjs && node scripts/clipboard.mjs",
+    "test:focus": "pnpm build && node scripts/build-test.mjs && node scripts/focus.mjs",
+    "test:phase6": "pnpm build && node scripts/build-test.mjs && node scripts/phase6.mjs",
+    "test:document-updates": "pnpm build && node scripts/build-test.mjs && node scripts/document-updates.mjs",
+    "test:phase7": "pnpm build && node scripts/build-test.mjs && node scripts/phase7.mjs",
+    "test:phase7:manual": "pnpm build && node scripts/build-test.mjs && node scripts/phase7.mjs --manual"
+  },
+  "dependencies": {
+    "@tiptap/core": "3.32.3",
+    "@tiptap/extension-image": "3.32.3",
+    "@tiptap/extension-task-item": "3.32.3",
+    "@tiptap/extension-task-list": "3.32.3",
+    "@tiptap/pm": "3.32.3",
+    "@tiptap/react": "3.32.3",
+    "@tiptap/starter-kit": "3.32.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.2.1",
+    "electron": "45.2.1",
+    "electron-builder": "26.18.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "build": {
+    "appId": "jp.engineeringworkspace.desktop",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/main.cjs",
+      "dist-electron/preload.cjs",
+      "assets/app-icon.png",
+      "assets/app-icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/app-icon.ico",
+      "target": "nsis"
+    },
+    "nsis": {
+      "installerIcon": "assets/app-icon.ico",
+      "uninstallerIcon": "assets/app-icon.ico",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

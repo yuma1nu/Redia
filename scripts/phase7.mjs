@@ -1,0 +1,14 @@
+import {mkdir,mkdtemp,realpath,stat} from 'node:fs/promises';
+import {resolve,relative,isAbsolute,basename,sep} from 'node:path';
+import {parseArgs} from 'node:util';
+import {launch} from './launch.mjs';
+await mkdir('test-artifacts',{recursive:true});
+const {values}=parseArgs({options:{manual:{type:'boolean'},profile:{type:'string'}}});
+const manual=!!values.manual;
+if(values.profile&&!manual)throw Error('--profile requires --manual');
+const root=values.profile?await realpath(resolve(values.profile)):await mkdtemp(resolve('test-artifacts/phase7-'));
+const within=relative(await realpath('test-artifacts'),root);
+if(!within||within==='..'||within.startsWith('..'+sep)||isAbsolute(within)||!basename(root).startsWith('phase7-')||!(await stat(root)).isDirectory())throw Error('Use an existing phase7-* directory inside test-artifacts');
+console.log('PHASE7_PROFILE '+root);
+await new Promise((done,reject)=>{const child=launch(['--smoke-test','--phase1-test'],{EW_TEST_DATA_DIR:root,EW_SCENARIO:manual?(values.profile?'phase7-resume':'phase7-manual'):'phase7-layout',EW_DEV_URL:''});const timer=manual?undefined:setTimeout(()=>{child.kill();reject(Error('Phase7 layout timed out'));},180000);child.on('error',reject);child.on('exit',code=>{clearTimeout(timer);if(code===0)done();else reject(Error('Phase7 failed '+code));});});
+console.log('PHASE7_PASSED '+root);
