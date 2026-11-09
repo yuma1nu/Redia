@@ -654,3 +654,10 @@ Windows x64 10.0.26300 / Node 24.22.1 / Electron 45.2.1 / SQLite 3.53.4。一時
 - アプリの挙動変更はなく、A01〜A23の受入判定と既存の手動未確認項目は変更しない。インストーラーのRelease添付は今回のソース公開には含めない。
 - 公開完了: `git push -u origin main` 成功。初回コミット `cf402a533dbd1816fb91fc58839562943512f4de`（131ファイル）をGitHub接続から取得できることを確認し、ローカルのmainとorigin/mainも一致。次回の変更は通常のコミット／pushで更新できる。
 
+## 2026-11-09 — インストーラーのGitHub Release公開
+
+- ユーザーの公開指示に従い、既存のRedia 0.1.4 Windows x64 NSISを https://github.com/yuma1nu/Redia/releases/tag/v0.1.4 へ公開。タグの対象は8884f388c78eaa8673bf845c7891872da1e78918。添付名はRedia-Setup-0.1.4.exe（123,776,599 bytes）とSHA256SUMS.txt。
+- 前回はブラウザー操作ツールのURL確認制約で停止。今回はGit Credential Managerの既存認証を使うGitHub APIで下書き作成→添付→サイズ・SHA-256照合→公開を実施（`pwsh -NoProfile -File test-artifacts/publish-redia.ps1`）。認証値は表示・ファイル保存・公開していない。実行用スクリプトは無視対象のtest-artifacts内。
+- インストーラーSHA-256: `926cf592006bb6fa53b43aa0df5806e445665bd922689828ab05191f363b171b`。GitHub側のアップロード完了とダイジェスト一致、公開状態draft=falseを確認。
+- 製品コードの変更・再生成はなし。未署名、インストール／更新／アンインストールの実操作と既存の手動受入残件は未確認のままRelease本文に記載。A01〜A23の既存判定は変更しない。次は別PCでの実インストール確認。
+
